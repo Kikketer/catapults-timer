@@ -19,12 +19,13 @@ Note: any .css or .scss files included in the 'styles' directory
 will be correctly compiled during `gulp serve` and `gulp`
  */
 
-html, body {
+html,
+body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   background-color: #eeeeee;
 }
 
@@ -36,12 +37,32 @@ html, body {
 
   .player-title {
     text-align: center;
-    background-color: #192B38;
+    background-color: #192b38;
     color: white;
+    margin: 0;
   }
 
   .player-score {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin-top: 1.4em;
+
+    > span {
+      flex: 1;
+    }
+
+    .increase, .decrease {
+      font-size: 2em;
+      text-align: center;
+    }
+
+    .actual-score {
+      font-size: 3em;
+      text-align: center;
+      margin-top: 15px;
+    }
   }
 }
 
@@ -56,10 +77,10 @@ html, body {
     flex-direction: row;
     align-items: center;
 
-     > div {
-       flex: 1;
-       text-align: center;
-       font-size: 2em;
-     }
+    > div {
+      flex: 1;
+      text-align: center;
+      font-size: 2em;
+    }
   }
 }

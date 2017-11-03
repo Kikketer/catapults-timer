@@ -76,6 +76,8 @@
   let seconds = 30
   let running = false
   let timer
+  const endRoundSound = new Audio('sounds/end-30.wav')
+  const warningFire = new Audio('sounds/fire.wav')
   document.querySelector('#timer-button').addEventListener('click', () => {
     const button = document.querySelector('#timer-button')
     const ticker = document.querySelector('#time-countdown')
@@ -90,8 +92,18 @@
         if (seconds > 0) {
           seconds--
           ticker.innerHTML = seconds
+          if(seconds === 15) {
+            warningFire.play()
+          }
+          else if(seconds === 5) {
+            warningFire.play()
+            setTimeout(() => {
+              warningFire.play()
+            }, 500)
+          }
         }
         else {
+          endRoundSound.play()
           running = false
           seconds = 0
           clearInterval(timer)
@@ -110,4 +122,8 @@
   })
 
   // TODO add + and - buttons to the player scores
+  let playerScoreBoxes = document.querySelectorAll('.player-score')
+  playerScoreBoxes.forEach(scoreBox => {
+
+  })
 })()
